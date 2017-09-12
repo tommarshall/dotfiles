@@ -1,0 +1,69 @@
+# use coreutils `ls` if possible…
+hash gls >/dev/null 2>&1 || alias gls="ls"
+
+# coloured ls by default
+export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx # colours for dark backgrounds
+alias ls='ls -G'
+
+# unix
+alias l='ls -lAF' # informative ls
+alias ll='ls -l'
+alias lsd="ls -lF | grep --color=never '^d'" # show directories only
+alias be='bundle exec'
+alias cpdir='pwd | pbcopy'
+alias grep='grep --color=auto'
+alias md='mkdir'
+alias tailf='tail -f'
+
+# Get OS X Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
+alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm update npm -g; npm update -g; sudo gem update --system; sudo gem update'
+
+# `cat` with beautiful colors. requires Pygments installed.
+#  $ sudo easy_install Pygments
+alias c='pygmentize -O style=monokai -f console256 -g'
+
+# git
+alias g='git'
+alias ga='git add'
+alias gaa='git add --all :/'
+alias gb='git branch'
+alias gc='git commit'
+alias gcam='git commit -am'
+alias gcl='git clone'
+alias gco='git checkout'
+alias gd='git diff'
+alias gds='git diff --staged'
+alias gdt='git difftool'
+alias gdlast='git difftool HEAD^ HEAD'
+alias gf='git fetch'
+alias gfo='git fetch origin'
+alias gfop='git fetch origin --prune'
+alias gl='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue(%cr)%Creset %an" --abbrev-commit --date="relative"'
+alias glm='git log --graph --pretty=format:"%h -%d %s (%cr) %an" --abbrev-commit --date="relative"'
+alias gpl='git pull'
+alias gplr='git pull --rebase'
+alias gps='git push'
+alias gpsf='git push --force-with-lease'
+alias gpsu='git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)'
+alias grb='git rebase'
+alias grbi='git rebase -i'
+alias gs='git status'
+alias gm='git merge --no-ff'
+alias gmt='git mergetool'
+alias grm='git rm'
+
+# Lock the screen (when going AFK)
+alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+
+# mac os x
+alias showfiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder'
+alias hidefiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder'
+alias hidedash='defaults write com.apple.dashboard mcx-disabled -boolean YES && killall Dock'
+alias showdash='defaults write com.apple.dashboard mcx-disabled -boolean NO && killall Dock'
+alias spotoff="sudo mdutil -a -i off"
+alias spoton="sudo mdutil -a -i on"
+alias disabledockdelay='defaults write com.apple.Dock autohide-delay -float 0 && killall Dock'
+alias enabledockdelay='defaults delete com.apple.Dock autohide-delay && killall Dock'
+
+# Execute local node modules
+alias npm-exec='PATH=$(npm bin):$PATH'

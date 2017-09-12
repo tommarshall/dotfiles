@@ -1,0 +1,64 @@
+# find shorthand
+function f() {
+	find . -name "$1" 2>&1 | grep -v 'Permission denied'
+}
+
+# Copy w/ progress
+cp_p () {
+  rsync -WavP --human-readable --progress $1 $2
+}
+
+# get gzipped size
+function gz() {
+	echo "orig size    (bytes): "
+	cat "$1" | wc -c
+	echo "gzipped size (bytes): "
+	gzip -c "$1" | wc -c
+}
+
+# remind me what redirecting to null looks like
+function nullify() {
+  echo '>/dev/null 2>&1'
+}
+
+# instant web server
+server() {
+  open "http://localhost:${1}" && python -m SimpleHTTPServer $1
+}
+
+# handy extract program
+# ref: https://github.com/bt3gl/Dotfiles-and-Bash-Examples/blob/master/configs/bashrc
+function extract() {
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)   tar xvjf $1     ;;
+      *.tar.gz)    tar xvzf $1     ;;
+      *.bz2)       bunzip2 $1      ;;
+      *.rar)       unrar x $1      ;;
+      *.gz)        gunzip $1       ;;
+      *.tar)       tar xvf $1      ;;
+      *.tbz2)      tar xvjf $1     ;;
+      *.tgz)       tar xvzf $1     ;;
+      *.zip)       unzip $1        ;;
+      *.Z)         uncompress $1   ;;
+      *.7z)        7z x $1         ;;
+      *)           echo "'$1' cannot be extracted via >extract<" ;;
+    esac
+  else
+    echo "'$1' is not a valid file!"
+  fi
+}
+
+fliptable() { echo "（╯°□°）╯ ┻━┻"; }
+
+function vagrant-global-halt() {
+  vagrant global-status | awk '/running/{print $1}' | xargs -n 1 -- vagrant halt
+}
+
+function gr () {
+  git checkout master && git fetch origin --prune && git pull --rebase && git delete-merged && git branches
+}
+
+function reload() {
+  exec $SHELL -l
+}
