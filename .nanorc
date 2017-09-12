@@ -1,0 +1,11 @@
+set boldtext
+set smarthome
+set const
+#set linenumbers
+
+# system syntax highlighting
+include /usr/local/share/nano/*.nanorc
+
+# extended system highlighting, ref: https://github.com/nanorc/nanorc
+include ~/.nano/syntax/ALL.nanorc
+
