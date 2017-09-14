@@ -18,6 +18,7 @@ brew install wget
 brew install git
 brew install rename
 brew install tree
+brew install bash-completion
 
 # ruby
 brew install chruby
