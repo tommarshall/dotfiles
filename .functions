@@ -55,6 +55,15 @@ function vagrant-global-halt() {
   vagrant global-status | awk '/running/{print $1}' | xargs -n 1 -- vagrant halt
 }
 
+# ref: http://jimhoskins.com/2013/07/27/remove-untagged-docker-images.html
+function docker-cleanup() {
+  # remove all stopped containers
+  docker rm $(docker ps -a -q)
+
+  # remove all untagged images
+  docker rmi $(docker images | grep "^<none>" | awk "{print $3}")
+}
+
 function gr () {
   git checkout master && git fetch origin --prune && git pull --rebase && git delete-merged && git branches
 }
