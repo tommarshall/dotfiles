@@ -64,6 +64,14 @@ function docker-cleanup() {
   docker rmi $(docker images | grep "^<none>" | awk "{print $3}")
 }
 
+# wrapper to clean up stupid rails server pid issue
+function docker-compose () {
+  if [ "$1" = "up" ]; then
+    rm tmp/pids/server.pid 2>/dev/null
+  fi
+  /usr/local/bin/docker-compose $@
+}
+
 function gr () {
   git checkout master && git fetch origin --prune && git pull --rebase && git delete-merged && git branches
 }
