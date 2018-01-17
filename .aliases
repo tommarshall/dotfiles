@@ -52,6 +52,15 @@ alias gm='git merge --no-ff'
 alias gmt='git mergetool'
 alias grm='git rm'
 
+# docker
+alias dcb='docker-compose build'
+alias dcd='docker-compose down'
+alias dck='docker-compose kill'
+alias dcr='docker-compose run --rm'
+alias dcrw='docker-compose run --rm web'
+alias dcu='docker-compose up'
+alias dsp='docker system prune'
+
 # Lock the screen (when going AFK)
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 
