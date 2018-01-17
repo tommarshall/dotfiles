@@ -20,6 +20,7 @@ brew install git
 brew install rename
 brew install tree
 brew install bash-completion
+brew install heroku
 
 # ruby
 brew install chruby
