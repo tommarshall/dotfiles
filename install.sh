@@ -14,6 +14,7 @@ brew upgrade
 # brew install findutils
 
 # install packages
+brew install watch
 brew install wget
 brew install git
 brew install rename
