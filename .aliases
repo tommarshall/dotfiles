@@ -59,6 +59,7 @@ alias dck='docker-compose kill'
 alias dcr='docker-compose run --rm'
 alias dcrw='docker-compose run --rm web'
 alias dcu='docker-compose up'
+alias dps='docker ps'
 alias dsp='docker system prune'
 
 # Lock the screen (when going AFK)
