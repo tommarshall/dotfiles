@@ -21,6 +21,7 @@ brew install rename
 brew install tree
 brew install bash-completion
 brew install heroku
+brew install awscli
 
 # ruby
 brew install chruby
