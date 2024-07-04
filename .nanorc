@@ -1,6 +1,6 @@
 set boldtext
 set smarthome
-set const
+set constantshow
 #set linenumbers
 
 # system syntax highlighting
