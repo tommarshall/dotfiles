@@ -62,6 +62,12 @@ alias dcu='docker-compose up'
 alias dps='docker ps'
 alias dsp='docker system prune'
 
+# docker & package managers
+alias bdn='bin/docker/npm'
+alias bdni='bin/docker/npm install'
+alias bdy='bin/docker/yarn'
+alias bdya='bin/docker/yarn add'
+
 # Lock the screen (when going AFK)
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 
